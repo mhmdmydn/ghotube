@@ -1,0 +1,46 @@
+.card-video {
+    display: flex;
+
+}
+
+.card-video img {
+    width: 350px;
+    height: 250px;
+    border-radius: 8%;
+    margin: 8px;
+}
+
+.card-video:hover {
+    background: #eeeeee;
+    overflow: hidden;
+}
+
+/* CSS responsive */
+
+@media screen and (max-width: 567px) {
+    .card-video img {
+        width: 150px;
+        height: 100px;
+        border-radius: 8%;
+        margin: 8px;
+    }
+}
+
+@media (min-width:768px) {
+    .card-video img {
+        width: 200px;
+        height: 150px;
+        border-radius: 8%;
+        margin: 8px;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+
+    .card-video img {
+        width: 300px;
+        height: 200px;
+        border-radius: 8%;
+        margin: 8px;
+    }
+}
