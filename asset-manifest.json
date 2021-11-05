@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/ghotube/static/css/main.c0a393d0.chunk.css",
+    "main.js": "/ghotube/static/js/main.af55724e.chunk.js",
+    "main.js.map": "/ghotube/static/js/main.af55724e.chunk.js.map",
+    "runtime-main.js": "/ghotube/static/js/runtime-main.cb026f12.js",
+    "runtime-main.js.map": "/ghotube/static/js/runtime-main.cb026f12.js.map",
+    "static/js/2.4a54a71a.chunk.js": "/ghotube/static/js/2.4a54a71a.chunk.js",
+    "static/js/2.4a54a71a.chunk.js.map": "/ghotube/static/js/2.4a54a71a.chunk.js.map",
+    "static/js/3.334a06b6.chunk.js": "/ghotube/static/js/3.334a06b6.chunk.js",
+    "static/js/3.334a06b6.chunk.js.map": "/ghotube/static/js/3.334a06b6.chunk.js.map",
+    "index.html": "/ghotube/index.html",
+    "static/css/main.c0a393d0.chunk.css.map": "/ghotube/static/css/main.c0a393d0.chunk.css.map",
+    "static/js/2.4a54a71a.chunk.js.LICENSE.txt": "/ghotube/static/js/2.4a54a71a.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.cb026f12.js",
+    "static/js/2.4a54a71a.chunk.js",
+    "static/css/main.c0a393d0.chunk.css",
+    "static/js/main.af55724e.chunk.js"
+  ]
+}
