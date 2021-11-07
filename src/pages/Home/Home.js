@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, {useState, useEffect, Fragment} from "react";
 import InfiniteScroll from "react-infinite-scroll-component";
-import Channel from "../../components/Card/Channel/Channel";
+import ChannelCard from "../../components/Card/Channel/ChannelCard";
 import VideoList from "../../components/Card/Video/VideoList";
 
 function Home(props) {
@@ -13,9 +13,14 @@ function Home(props) {
     const [page, setPage] = useState(1)
     const query = new URLSearchParams(props.location.search).get('q');
     
-    const fetchUrl = `https://ghodel-api.herokuapp.com/api/v1/yt/search/${query}&?p=${page}`;
+    const fetchUrl = `https://ghodel-api.herokuapp.com/api/v1/yt/search/${query}?p=${page}`;
+    
+    useEffect(() => {
 
+        fetchData()
 
+    }, [query])
+    
     const fetchData = () => {
 
         setLoading(true);
@@ -32,28 +37,19 @@ function Home(props) {
         setPage(page + 1);
     };
     
-    useEffect(() => {
-
-        fetchData()
-
-    }, [query])
-    
-    console.log("channel ", channel);
-    
     return (
         <Fragment>
-            <div className="container mt-5 py-3">
-                <div className="row">
-                    <div className="col-md-12">
-                        <h5>Search results for : {query}</h5>
+            {(!loading) ?
+                <p>Loading...</p>
+                :
+                <div className="container mt-5 py-3">
+                    <div className="row">
+                        <div className="col-md-12">
+                            <h5>Search results for : {query}</h5>
+                            <ChannelCard data={channel} />
 
-                        <Channel data={channel} />
-                        
-
-                        {(!loading) ?
-                            <p>Loading...</p>
-                            :
                             <InfiniteScroll
+                                
                                 dataLength={video.length}
                                 next={fetchData}
                                 hasMore={true}
@@ -62,15 +58,15 @@ function Home(props) {
                                     <p style={{ textAlign: "center" }}>
                                         <b>Yay! You have seen it all</b>
                                     </p>
-                                }
-                            >
+                                }>
                                 <VideoList data={video} />
+                                
                             </InfiniteScroll>
-                        }
+                        
                     </div>
                 </div>
             </div>
-            
+            }
         </Fragment>
      );
 }

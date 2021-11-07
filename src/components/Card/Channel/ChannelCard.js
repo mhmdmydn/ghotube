@@ -2,14 +2,15 @@ import React, { Fragment } from "react";
 import { FaCheckCircle } from "react-icons/fa";
 import { Link } from 'react-router-dom';
 
-function Channel({data}) {
+function ChannelCard({data}) {
+
     return (
         <Fragment>
             {data && data.length ?
                 data.map((item, index) => {
                 
-                return <Link to={`/ghotube/channel/${item.channelID}`} >
-                    <div className="card-video mb-3 row-md-4" key={index} data-aos="fade-left">
+                return <Link to={`/ghotube/channel?channelName=${item.name}&channelId=${item.channelID}`} >
+                    <div className="card-video mb-3 row-md-4">
                         <img className="channel rounded-circle m-auto" src={item.avatar} alt="..." style={{width : '130px', height: '130px', marginLeft: '8px', marginRight : '8px'}} />
                        
                         <div className="card-body">
@@ -27,7 +28,7 @@ function Channel({data}) {
                         </div>
 
                         <div className="m-auto p-5">
-                            <Link className="btn btn-primary" to={`/ghotube/channel/${item.channelID}`} >Views</Link>
+                            <Link className="btn btn-primary" to={`/ghotube/channel?channelName=${item.name}&channelId=${item.channelID}`} >Views</Link>
                         </div>
                     </div>
                     <hr />
@@ -37,4 +38,4 @@ function Channel({data}) {
     );
 }
 
-export default Channel;
+export default ChannelCard;

@@ -10,23 +10,18 @@ function Watch(props) {
     const [video, setVideo] = useState([])
     const [relatedVideo, setRelatedVideo] = useState([])
     const [loading, setLoading] = useState(false)
-    const [vidLoading, setVidLoading] = useState(false)
     const [error, setError] = useState(null)
 
     const id = new URLSearchParams(props.location.search).get('id');
 
     useEffect(() => {
-        
-        fetchVideoStream(id)
         setLoading(true)
+        fetchVideoStream(id)
 
     }, [])
 
     useEffect(() => {
-        
         fetchVideo(id)
-        setVidLoading(true)
-        
     }, [])
 
     const fetchVideoStream = async (id) => {
@@ -50,32 +45,29 @@ function Watch(props) {
     return (
         
         <Fragment>
-            <div className="container">
-                <div className="row">
-                    <div className="col-md-12 mt-5 pt-4 align-items-center">
-                        {
-                            (stream && stream.length) ?
-                                stream.map((item, index) => {
-                                    if (index === 0) {
-                                        return <video
-                                            id="player"
-                                            playsinline
-                                            poster={video.title}
-                                            controls
-                                            src={item.downloadURL}
-                                            style={{width: '100%', borderRadius: '20px'}}
-                                        />
-
-                                    }
-                                })
-                            
-
-                                : <p>{error}</p>
-                        }
-
-                        <div className="desc mt-5">
-                            {
-                                (loading) ?
+            {
+                (loading) ?
+                    <div className="container">
+                        <div className="row">
+                            <div className="col-md-12 mt-5 pt-4 align-items-center">
+                                {
+                                    (stream && stream.length) ?
+                                        stream.map((item, index) => {
+                                            if (index === 0) {
+                                                return <video
+                                                    className="shadow-sm"
+                                                    id="player"
+                                                    playsinline
+                                                    poster={video.title}
+                                                    controls
+                                                    src={item.downloadURL}
+                                                    style={{ width: '100%', borderRadius: '20px' }}
+                                                />
+                                            }
+                                        })
+                                        : <p>{error}</p>
+                                }
+                                <div className="desc mt-5">
                                     <div>
                                         <h2>{video.title}</h2>
                                         <div className="d-flex justify-content-between fs-5">
@@ -89,26 +81,23 @@ function Watch(props) {
                                             </div>
 
                                         </div>
-
                                         <div>
                                             <p style={{whiteSpace : 'pre-line'}}>{video.decription}</p>
                                         </div>
                                     </div>
-                                    :
-                                    <p>{ error }</p>
-                            }
+                                </div>
+                                <hr />
+                                {
+                                    <VideoList data={relatedVideo} />
+                                }
+                            </div>
+                        
                         </div>
-
-                        <hr />
-
-                        {
-                            <VideoList data={relatedVideo} />
-                        }
                     </div>
-                </div>
-            </div>
+                    :
+                    <p style={{ textAlign: "center" }}>Loading...</p>
+            }
         </Fragment>
-    
     );
 }
 

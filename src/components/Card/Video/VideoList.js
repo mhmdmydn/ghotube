@@ -35,7 +35,8 @@ function VideoList({ data }) {
                                         null
                                 }
                                 
-                                <Link to={`/ghotube/channel/` + (item.author.channelID || item.author.authorID)}>{item.author.name}</Link>
+                                
+                                <Link to={`/ghotube/channel?channelName=${item.author.name}&channelId=${(item.author.channelID || item.author.authorID)}`}>{item.author.name}</Link>
                                 {(item.author.verified) ? <FaCheckCircle/> : ''}
                             </div>
                         </div>
