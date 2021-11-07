@@ -26,7 +26,6 @@ const Channel = (props) => {
     }, [])
 
     const fetchData = () => {
-        setLoading(true);
         axios.get(fetchUrl, {
             headers: {},
         }).then((response) => {
@@ -66,7 +65,7 @@ const Channel = (props) => {
                     </div>
                     <InfiniteScroll
                         dataLength={video.length}
-                        next={fetchData}
+                        next={fetchVideo}
                         hasMore={true}
                         loader={<p style = {{ textAlign: "center" } }>Loading...</p>}
                         endMessage={

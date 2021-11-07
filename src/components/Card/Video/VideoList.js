@@ -20,7 +20,7 @@ function VideoList({ data }) {
             {data && data.length ?
                 data.map((item, index) => {
                 
-                return <Link to={`/ghotube/watch?id=${(item.id || item.videoID)}`} >
+                return <Link to={`/ghotube/watch?id=${(item.id || item.videoID)}`} target="_blank" rel="noopener noreferrer" >
                     <div className="card-video mb-3 align-items-center " key={index} data-aos="fade-left">
                         <img className="m-4" src={item.bestThumbnail || item.thumbnails} alt="thumbnail" />
                         <div className="card-body ">
