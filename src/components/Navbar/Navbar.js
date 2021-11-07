@@ -1,5 +1,7 @@
 import React from "react";
 import { Link, withRouter } from "react-router-dom";
+import { FaGithub } from "react-icons/fa";
+
 
 function Navbar(props) {
   return (
@@ -14,15 +16,10 @@ function Navbar(props) {
           </button>
           <div className="collapse navbar-collapse" id="navbarNav">
             <ul className="navbar-nav ms-auto">
-              <li className={`nav-item  ${props.location.pathname === "/about" ? "active" : "" }`}>
-                <Link className="nav-link" to="/ghotube/about">
-                  About
-                </Link>
-              </li>
-              <li className={`nav-item  ${ props.location.pathname === "/contact" ? "active" : "" }`}>
-                <Link className="nav-link" to="/ghotube/contact">
-                  Contact
-                </Link>
+              <li className="nav-item">
+                <a className="nav-link" href="https://github.com/mhmdmydn/ghotube" rel="noreferrer" target="_blank">
+                  Source <FaGithub className="fs-3"/>
+                </a>
               </li>
             </ul>
           </div>

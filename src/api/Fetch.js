@@ -3,7 +3,7 @@ import axios from "axios";
 export const fetchSearch = async (query) => {
 
     try {
-        const res = await axios.get(`https://ghodel-api.herokuapp.com/api/v1/yt/search/${query}`);
+        const res = await axios.get(`https://ghodel-api.herokuapp.com/api/v1/yt/search/${query}&?p=10`);
 
         return res.data.results;
     } catch (error) {
